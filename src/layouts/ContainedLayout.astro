@@ -1,0 +1,14 @@
+---
+const elements = ["div", "header", "nav", "article", "section"] as const;
+
+interface Props {
+  Element: (typeof elements)[number];
+  classes?: string;
+}
+
+const { Element, classes } = Astro.props;
+---
+
+<Element class:list={["max-w-[70rem] mx-auto", classes]}>
+  <slot />
+</Element>

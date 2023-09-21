@@ -1,0 +1,23 @@
+---
+import Icon from "./Icon.astro";
+import type { IconType } from "../lib/types";
+
+interface Props {
+  size: number;
+  icon: IconType;
+  classes?: string;
+  id?: string;
+}
+
+const { size, icon, classes, id } = Astro.props;
+---
+
+<button
+  {id}
+  class:list={[
+    "rounded-full p-sm opacity-100 active:opacity-70 transition-all",
+    classes,
+  ]}
+>
+  <Icon {size} {icon} />
+</button>

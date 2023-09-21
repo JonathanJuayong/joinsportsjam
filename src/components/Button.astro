@@ -1,0 +1,21 @@
+---
+interface Props {
+  label: string;
+  href?: string;
+  classes?: string;
+}
+
+const { href, label, classes } = Astro.props;
+---
+
+{
+  href ? (
+    <a class:list={["py-md px-lg bg-black text-white", classes]} href={href}>
+      {label}
+    </a>
+  ) : (
+    <button class:list={["py-md px-lg bg-black text-white", classes]}>
+      {label}
+    </button>
+  )
+}

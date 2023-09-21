@@ -1,0 +1,105 @@
+---
+import IconButton from "./IconButton.astro";
+
+export type Link = {
+  label: string;
+  href: string;
+};
+
+interface Props {
+  links: Link[];
+}
+
+const { links } = Astro.props;
+---
+
+<nav
+  id="mobile-nav"
+  class="fixed space-y-lg px-sm bg-white min-h-screen z-40 -translate-x-full w-full transition-all duration-300 ease-in-out md:hidden"
+>
+  <div class="flex justify-between items-center py-xl">
+    <p class="text-2xl">JoinSports<span class="font-extrabold">JAM</span></p>
+    <IconButton id="close-drawer-btn" classes="py-xs" icon="x" size={40} />
+  </div>
+  <ul id="link-container" class="space-y-md">
+    {
+      links.map(({ label, href }) => (
+        <li>
+          <a {href}>{label}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<header
+  id="header"
+  class="py-xl px-sm min-h-[4em] md:py-xl md:px-xl fixed w-full z-20 transition-all ease-in-out duration-300 top-[0]"
+>
+  <div class="flex justify-between items-center max-w-7xl mx-auto">
+    <p class="text-2xl">
+      JoinSports<span class="font-extrabold">JAM</span>
+    </p>
+    <nav class="hidden md:block">
+      <ul class="w-full flex gap-xl">
+        {
+          links.map(({ label, href }) => (
+            <li>
+              <a {href}>{label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <IconButton
+      classes="md:hidden"
+      id="open-drawer-btn"
+      icon="menu"
+      size={40}
+    />
+  </div>
+</header>
+
+<script>
+  const mobileNav = document.getElementById("mobile-nav") as HTMLDivElement;
+  const openDrawerBtn = document.getElementById(
+    "open-drawer-btn",
+  ) as HTMLButtonElement;
+  const closeDrawerBtn = document.getElementById(
+    "close-drawer-btn",
+  ) as HTMLButtonElement;
+
+  function handleOpenDrawer() {
+    mobileNav.classList.add("translate-x-[0]");
+  }
+  function handleCloseDrawer() {
+    mobileNav.classList.remove("translate-x-[0]");
+    mobileNav.classList.add("-translate-x-full");
+  }
+
+  openDrawerBtn.addEventListener("click", handleOpenDrawer);
+  closeDrawerBtn.addEventListener("click", handleCloseDrawer);
+
+  const linkContainer = document.getElementById(
+    "link-container",
+  ) as HTMLUListElement;
+  const listItems = linkContainer.childNodes;
+
+  listItems.forEach((item) =>
+    item.addEventListener("click", handleCloseDrawer),
+  );
+
+  // hide navbar on scroll
+  let previousScrollPosition = window.scrollY;
+  window.onscroll = function () {
+    const currentScrollPosition = window.scrollY;
+    if (previousScrollPosition > currentScrollPosition) {
+      const navbar = document.getElementById("header") as HTMLDivElement;
+      navbar.style.top = "0";
+    } else {
+      const navbar = document.getElementById("header") as HTMLDivElement;
+      navbar.style.top = "-100%";
+    }
+    previousScrollPosition = currentScrollPosition;
+  };
+</script>
