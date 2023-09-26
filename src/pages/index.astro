@@ -7,20 +7,13 @@ import heroImage from "../images/hero-image.png";
 import aboutImage1 from "../images/sports-jam-image-collage-1.png";
 import signUpImage from "../images/sign-up-pictures.png";
 import Card from "../components/Card.astro";
+import HeroBackdrop from "../components/HeroBackdrop.astro";
 ---
 
 <MainLayout title="Home">
   <main class="overflow-hidden">
     <div class="grid items-center min-h-[50rem] lg:min-h-screen relative">
-      <div
-        class:list={[
-          "absolute w-full h-[14rem] -translate-y-[16rem] -skew-y-[8deg]",
-          "-z-10 bg-gradient-to-l from-blue-600 via-blue-700 to-gray-900",
-          "xs:-translate-y-[12rem]",
-          "lg:h-[30rem] lg:-translate-y-[3rem]",
-        ]}
-      >
-      </div>
+      <HeroBackdrop />
       <ContainedLayout
         Element="div"
         classes="flex flex-col gap-2xl justify-center lg:grid lg:text-start lg:w-full lg:grid-cols-2 lg:items-center px-xl pb-[4rem]"
