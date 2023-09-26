@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+import heroImage from "../images/hero-image.png";
+import HeroBackdrop from "../../components/HeroBackdrop.astro";
+import ContainedLayout from "../../layouts/ContainedLayout.astro";
+import Button from "../../components/Button.astro";
+---
+
+<div class="grid items-center min-h-[50rem] lg:min-h-screen relative">
+  <HeroBackdrop />
+  <ContainedLayout
+    Element="div"
+    classes="flex flex-col gap-2xl justify-center lg:grid lg:text-start lg:w-full lg:grid-cols-2 lg:items-center px-xl pb-[4rem]"
+  >
+    <Image
+      class="mx-auto"
+      src={heroImage}
+      alt="collage of children participating in sports"
+    />
+    <section class="flex flex-col gap-xl text-center lg:text-start">
+      <h1 class="text-[3rem] leading-tight lg:text-[5rem]">
+        <span
+          class="block uppercase text-base font-black tracking-[0.25em] pb-lg"
+        >
+          Are you ready to jam?
+        </span>
+         Multiple Sports. One Epic Venue.
+      </h1>
+      <Button
+        classes="lg:mt-2xl min-w-[50%] self-center lg:self-start "
+        label="Join SportsJAM Now"
+      />
+    </section>
+  </ContainedLayout>
+</div>

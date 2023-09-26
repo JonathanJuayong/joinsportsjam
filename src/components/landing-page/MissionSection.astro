@@ -1,0 +1,45 @@
+---
+import Card from "../../components/Card.astro";
+import ContainedLayout from "../../layouts/ContainedLayout.astro";
+---
+
+<div class="px-xl py-[4rem] lg:py-[8rem] leading-loose relative">
+  <ContainedLayout Element="section" classes="flex flex-col gap-2xl">
+    <h2
+      data-before="Mission"
+      class:list={[
+        "text-4xl lg:text-6xl text-center self-center",
+        "before:content-[attr(data-before)] before:absolute before:-z-10 before:font-black before:opacity-[3%]",
+        "before:-translate-x-[50%] before:translate-y-[2rem] before:text-[10rem]",
+        "lg:before:-translate-x-[50%] lg:before:-translate-y-[8rem] lg:before:text-[20rem]",
+      ]}
+    >
+      <span class="block uppercase text-sm font-black tracking-[0.25em]">
+        What is
+      </span>
+      <div class="border-b-2 border-b-black w-2xl mx-auto my-sm"></div>
+       Our Mission?
+    </h2>
+    <p class="lg:w-3/4 mx-auto lg:text-center">
+      At Sports Jam, our mission is rooted in three core pillars. These pillars
+      guide our efforts in creating a vibrant sporting community that nurtures
+      young athletes and fosters their growth.
+    </p>
+    <ul
+      class="flex flex-col max-w-lg mx-auto lg:max-w-none lg:grid lg:grid-cols-3 lg:items-start lg:gap-2xl gap-[10em] pt-[8em]"
+    >
+      <Card icon="whistle" title="Train">
+        Sports<span class="font-black">JAM</span> helps kids access the clubs
+        that can provide training for a variety of different sports.
+      </Card>
+      <Card icon="book" title="Teach">
+        Sports<span class="font-black">JAM</span> teaches our children a variety
+        of team skills, values, and beliefs that will benefit their life.
+      </Card>
+      <Card icon="bugle" title="Promote">
+        Sports<span class="font-black">JAM</span> promotes the benefits that
+        sport and the outdoors have on families and children.
+      </Card>
+    </ul>
+  </ContainedLayout>
+</div>

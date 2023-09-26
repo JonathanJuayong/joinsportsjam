@@ -1,0 +1,47 @@
+---
+import ContainedLayout from "../../layouts/ContainedLayout.astro";
+import aboutImage1 from "../images/sports-jam-image-collage-1.png";
+import { Image } from "astro:assets";
+---
+
+<div class="px-xl py-[4rem] lg:py-[8rem] leading-loose relative">
+  <ContainedLayout Element="div" classes="flex flex-col gap-2xl justify-center">
+    <div class="grid items-start justify-center lg:grid-cols-3 lg:min-h-screen">
+      <Image
+        class="hidden lg:block absolute -translate-y-[2em] translate-x-[12rem]"
+        width={1200}
+        src={aboutImage1}
+        alt="3 pictures of children playing sports arranged in a row"
+      />
+      <section class="grid gap-2xl">
+        <h2
+          data-before="SportsJAM"
+          class:list={[
+            "text-4xl lg:text-6xl text-center lg:text-start",
+            "before:content-[attr(data-before)] before:absolute before:-z-10 before:font-black before:opacity-[3%]",
+            "before:-translate-x-[50%] before:translate-y-[2rem] before:text-[10rem]",
+            "lg:before:-translate-x-[10%] lg:before:-translate-y-[8rem] lg:before:text-[20rem]",
+          ]}
+        >
+          <span class="block uppercase text-sm font-black tracking-[0.25em]">
+            What is
+          </span>
+          <div class="border-b-2 border-b-black w-2xl mx-auto lg:mx-[0] my-sm">
+          </div>
+           Sports<span class="font-black">JAM</span>?
+        </h2>
+        <Image
+          class="lg:hidden -mt-[2rem] mx-auto xs:-mt-[4rem] lg:order-2 lg:col-span-2"
+          src={aboutImage1}
+          width={700}
+          alt="3 pictures of children playing sports arranged in a row"
+        />
+        <p class="">
+          Sports<span class="font-black">JAM</span>
+           is a one-day event where kids get to pick and play from a wide
+          variety of sports within the same venue.
+        </p>
+      </section>
+    </div>
+  </ContainedLayout>
+</div>

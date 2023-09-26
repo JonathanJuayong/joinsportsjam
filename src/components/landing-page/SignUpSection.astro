@@ -1,0 +1,39 @@
+---
+import signUpImage from "../images/sign-up-pictures.png";
+import ContainedLayout from "../../layouts/ContainedLayout.astro";
+import Button from "../../components/Button.astro";
+import { Image } from "astro:assets";
+---
+
+<div
+  class="px-xl py-[4rem] lg:py-[8rem] leading-loose relative bg-gray-800 text-white"
+>
+  <ContainedLayout
+    Element="div"
+    classes="flex flex-col lg:flex-row gap-2xl justify-between"
+  >
+    <div class="space-y-xl">
+      <h2 class="text-4xl lg:text-6xl text-center lg:text-start">
+        <span class="block uppercase text-sm font-black tracking-[0.25em]">
+          Join the Jam
+        </span>
+        <div class="border-b-2 border-b-white w-2xl mx-auto my-sm lg:mx-[0]">
+        </div>
+         Sign Up Now
+      </h2>
+      <p>
+        Don't miss out on this fantastic opportunity! Join us at Sports Jam and
+        let your athletic journey begin!
+      </p>
+      <Button
+        classes="w-full lg:mt-2xl lg:w-[50%] self-center lg:self-start"
+        label="Join SportsJAM Now"
+      />
+    </div>
+    <Image
+      src={signUpImage}
+      class="w-full"
+      alt="three pictures of kids looking up the camera"
+    />
+  </ContainedLayout>
+</div>
